@@ -8,6 +8,9 @@ import { AboutPageComponent } from './pages/about-page/about-page.component';
 import { ContactPageComponent } from './pages/contact-page/contact-page.component';
 import { NotfoundPageComponent } from './pages/notfound-page/notfound-page.component';
 import { DetailProductPageComponent } from './pages/detail-product-page/detail-product-page.component';
+import { ProductComponent } from './compronents/product/product.component';
+import { ProductDetailComponent } from './compronents/product-detail/product-detail.component';
+import { ProductItemComponent } from './compronents/product-item/product-item.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +19,10 @@ import { DetailProductPageComponent } from './pages/detail-product-page/detail-p
     AboutPageComponent,
     ContactPageComponent,
     NotfoundPageComponent,
-    DetailProductPageComponent
+    DetailProductPageComponent,
+    ProductComponent,
+    ProductDetailComponent,
+    ProductItemComponent
   ],
   imports: [
     BrowserModule,
