@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,6 +14,9 @@ import { DetailProductPageComponent } from './pages/detail-product-page/detail-p
 import { ProductComponent } from './compronents/product/product.component';
 import { ProductDetailComponent } from './compronents/product-detail/product-detail.component';
 import { ProductItemComponent } from './compronents/product-item/product-item.component';
+import { HeaderComponent } from './pages/home-page/header/header.component';
+import { ContainerComponent } from './pages/home-page/container/container.component';
+import { FooterComponent } from './pages/home-page/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +28,10 @@ import { ProductItemComponent } from './compronents/product-item/product-item.co
     DetailProductPageComponent,
     ProductComponent,
     ProductDetailComponent,
-    ProductItemComponent
+    ProductItemComponent,
+    HeaderComponent,
+    ContainerComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

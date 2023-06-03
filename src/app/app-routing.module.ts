@@ -6,8 +6,17 @@ import { ContactPageComponent } from './pages/contact-page/contact-page.componen
 import { NotfoundPageComponent } from './pages/notfound-page/notfound-page.component';
 import { ProductComponent } from './compronents/product/product.component';
 import { ProductDetailComponent } from './compronents/product-detail/product-detail.component';
-import { ProductItemComponent } from './compronents/product-item/product-item.component';
-const routes: Routes = [];
+import { HeaderComponent } from './pages/home-page/header/header.component';
+import { ContainerComponent } from './pages/home-page/container/container.component';
+import { FooterComponent } from './pages/home-page/footer/footer.component';
+const routes: Routes = [
+  {path:'',component: HomePageComponent},
+  {path:'about',component:AboutPageComponent},
+  {path:'contact',component:ContactPageComponent},
+  {path:'product',component:ProductComponent},
+  {path:'product/:id',component:ProductDetailComponent},
+  {path:'**',component:NotfoundPageComponent}
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
