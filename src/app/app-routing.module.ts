@@ -10,7 +10,7 @@ import { HeaderComponent } from './pages/home-page/header/header.component';
 import { ContainerComponent } from './pages/home-page/container/container.component';
 import { FooterComponent } from './pages/home-page/footer/footer.component';
 const routes: Routes = [
-  {path:'',component: HomePageComponent},
+  {path:'',component:HomePageComponent},
   {path:'about',component:AboutPageComponent},
   {path:'contact',component:ContactPageComponent},
   {path:'product',component:ProductComponent},

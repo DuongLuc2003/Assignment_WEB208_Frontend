@@ -10,84 +10,35 @@
         </select>
         <div class="product-gr">
             <!--  1-->
-            <div class="product-item">
-                <img src="" alt="">
+            <!-- <div class="product-item">
+                <img src="{{product.avatar}}" alt="">
                 <div class="product-item-info">
-                    <span></span>
-                    <div class="price"></div>
+                    <div class="name">{{product.name}}</div>
+                    <div class="price">{{product.price}}</div>
                 </div>
                 <button>Add</button>
-            </div>
+            </div> -->
             <!-- 2 -->
-            <div class="product-item">
-                <img src="" alt="">
+            <div class="product-item" *ngFor="let product of products">
+                <img src="{{product.avatar.base_url}}" alt="img">
                 <div class="product-item-info">
-                    <span></span>
-                    <div class="price"></div>
+                    <div class="name">{{product.name}}</div>
+                    <div class="price-gr">
+                        <div class="price">{{product.price}}</div>
+                        <div class="price-original">{{product.original_price}}</div>
+                    </div>
+                    
                 </div>
-                <button>Add</button>
+                <button class="add-product">Add</button>
             </div>
-            <!-- 3 -->
-            <div class="product-item">
-                <img src="" alt="">
-                <div class="product-item-info">
-                    <span></span>
-                    <div class="price"></div>
-                </div>
-                <button>Add</button>
-            </div>
-            <!--4  -->
-            <div class="product-item">
-                <img src="" alt="">
-                <div class="product-item-info">
-                    <span></span>
-                    <div class="price"></div>
-                </div>
-                <button>Add</button>
-            </div>
-            <!--  5-->
-            <div class="product-item">
-                <img src="" alt="">
-                <div class="product-item-info">
-                    <span></span>
-                    <div class="price"></div>
-                </div>
-                <button>Add</button>
-            </div>
-            <!--  6-->
-            <div class="product-item">
-                <img src="" alt="">
-                <div class="product-item-info">
-                    <span></span>
-                    <div class="price"></div>
-                </div>
-                <button>Add</button>
-            </div>
-            <!-- 7 -->
-            <div class="product-item">
-                <img src="" alt="">
-                <div class="product-item-info">
-                    <span></span>
-                    <div class="price"></div>
-                </div>
-                <button>Add</button>
-            </div>
-            <!-- 8 -->
-            <div class="product-item">
-                <img src="" alt="">
-                <div class="product-item-info">
-                    <span></span>
-                    <div class="price"></div>
-                </div>
-                <button>Add</button>
-            </div>
+            
        
         </div>
-        <div class="blog">
+        <!-- <div class="blog">
             <h2>Our Blog</h2>
-            <div class="blog-item-gr">
+            <div class="blog-item-gr"> -->
                 <!--  -->
-                <div class="blog-gr1">
+                <!-- <div class="blog-gr1">
                     <div class="blog-item">
                         <img src="" alt="">
                         <h3>Blog1</h3>
@@ -98,9 +49,9 @@
                         <h3>Blog1</h3>
                         <span>span1</span>
                     </div>
-                </div>
+                </div> -->
                 <!--  -->
-                <div class="blog-gr2">
+                <!-- <div class="blog-gr2">
                     <div class="blog-item">
                         <img src="" alt="">
                         <h3>Blog1</h3>
@@ -120,9 +71,9 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
         <!-- contact -->
-        <div class="contact">
+        <!-- <div class="contact">
             <div class="contact-gr1">
                 <div class="ct-title">
                     <h2>Do you have a question or want to become a seller?</h2> 
@@ -139,5 +90,5 @@
                 <img src="" alt="">
             </div>
             
-        </div>
+        </div> -->
     </div>
