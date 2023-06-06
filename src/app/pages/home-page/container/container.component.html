@@ -1,30 +1,19 @@
     
     <div class="container">
         <h1>Home kithen</h1>
-        <select>
+        <select (change)="filterByCategory($event)">
             <option value="all">All</option>
-            <option value="food">Đồ ăn</option>
-            <option value="soft drink">Nước ngọt</option>
-            <option value="desserts">Tráng miệng</option>
-            <option value="coffe">Cà Phê</option>
+            <option *ngFor="let category of categories" [value]="category._id">{{ category.name }}</option>
+            <!-- <option value="{{category.id}}">{{category.name}}</option> -->
         </select>
         <div class="product-gr">
-            <!--  1-->
-            <!-- <div class="product-item">
-                <img src="{{product.avatar}}" alt="">
+           
+            <div class="product-item" *ngFor="let product of products" (click)="goToProductDetail(product._id)">
+                <img src="{{product.avatar.base_url}}" alt="img" >
                 <div class="product-item-info">
-                    <div class="name">{{product.name}}</div>
-                    <div class="price">{{product.price}}</div>
-                </div>
-                <button>Add</button>
-            </div> -->
-            <!-- 2 -->
-            <div class="product-item" *ngFor="let product of products">
-                <img src="{{product.avatar.base_url}}" alt="img">
-                <div class="product-item-info">
-                    <div class="name">{{product.name}}</div>
+                    <div class="name" >{{product.name}}</div>
                     <div class="price-gr">
-                        <div class="price">{{product.price}}</div>
+                        <div class="price">{{product.price }}</div>
                         <div class="price-original">{{product.original_price}}</div>
                     </div>
                     
