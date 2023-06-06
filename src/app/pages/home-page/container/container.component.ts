@@ -13,6 +13,8 @@ export class ContainerComponent implements OnInit{
   products: IProduct[]= [];
   categories:ICategory[]=[];
   filteredProducts:IProduct[]=[];
+  searchKeyword: string = '';
+  searchResults: IProduct[] = [];
   
   constructor(private productService: ProductService, private router: Router, private categoryService: CategoriesService) {}
 
@@ -53,10 +55,19 @@ export class ContainerComponent implements OnInit{
       this.loadAllProducts();
     }
   }
+
+  // searchProducts() {
+  //   if (this.searchKeyword.trim() !== '') {
+  //     this.productService.searchProducts(this.searchKeyword)
+  //       .subscribe(products => this.searchResults = products.data);
+  //   } else {
+  //     this.loadAllProducts();
+  //   }
+  // }
   
   goToProductDetail(productId: number | undefined) {
     if (productId !== undefined) {
-      this.router.navigate(['/products', productId]);
+      this.router.navigate(['/product', productId]);
     }
   }
  

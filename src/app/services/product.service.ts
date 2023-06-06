@@ -13,15 +13,15 @@ export class ProductService {
 
   }
 
-  private API_Url = 'http://localhost:8000/api/products'
+  private API_Url = 'http://localhost:8000/api'
   
 
   
 getProducts(): Observable<{data:IProduct[]}> {
-    return this.http.get<{data:IProduct[]}>(this.API_Url);
+    return this.http.get<{data:IProduct[]}>(`${this.API_Url}/products`);
 }
 getProduct(id:any ):Observable<IProduct>{
-    return this.http.get<IProduct>(`${this.API_Url}/` + id);
+    return this.http.get<IProduct>(`${this.API_Url}/product/` + id);
 }
 deleteProduct(id: number | string): Observable<IProduct> {
     return this.http.delete<IProduct>(`${this.API_Url}/` + id);
@@ -36,7 +36,9 @@ updateProduct(product: IProduct): Observable<IProduct> {
 getProductsByCategory(categoryId: string): Observable<{data:IProduct[]}> {
   return this.http.get<{data:IProduct[]}>(`${this.API_Url}?categoryId=${categoryId}`);
 }
-
+// searchProducts(keyword: string):  Observable<{data:IProduct[]}> {
+//   return this.http.get<{data:IProduct[]}>(`${this.API_Url}/products?search=${keyword}`);
+// }
 
 
   

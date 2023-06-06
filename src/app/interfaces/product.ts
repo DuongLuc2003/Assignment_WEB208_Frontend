@@ -5,7 +5,7 @@ export interface IProduct {
     original_price: number;
     description: string;
     avatar:any
-    image?: string;
+    images: any;
     slug: string;
     categoryId: number;
 }
