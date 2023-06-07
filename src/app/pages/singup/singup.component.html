@@ -1,0 +1,34 @@
+<form [formGroup]="userForm" (ngSubmit)="onHandleSubmit()" class="border w-full">
+  <div class="">
+    <label for="name">name: </label>
+    <input id="name" type="text" formControlName="name">
+  </div>
+
+  <div class="">
+    <label for="email">email: </label>
+  <input id="email" type="email" formControlName="email">
+  </div>
+
+  <div class=" flex space-x-5">
+    <label for="password">password: </label>
+    <input id="password" type="password" formControlName="password" autocomplete="password">
+  </div>
+
+  <div class=" ">
+    <label for="confirmPassword">confirmPassword: </label>
+    <input id="confirmPassword" type="password" formControlName="confirmPassword" autocomplete="password">
+  </div>
+
+  <div class=" "> 
+    <label for="address">address: </label>
+    <input id="address" type="text" formControlName="address">
+  </div>
+
+  <div class="px-3 ">
+    <label for="phone">phone: </label>
+    <input id="phone" type="text" formControlName="phone">
+  </div>
+
+  <a><button type="submit" [disabled]="!userForm.valid">submit</button>
+  </a>
+</form>

@@ -1,0 +1,7 @@
+<form [formGroup]="userForm" (ngSubmit)="onHandleSubmit()">
+    <label for="email">email: </label>
+    <input id="email" type="email" formControlName="email" required="true">
+    <label for="password">password: </label>
+    <input id="password" type="password" formControlName="password"  autocomplete="password">
+  <button type="submit" [disabled]="!userForm.valid">submit</button>
+  </form>
