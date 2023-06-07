@@ -1,11 +1,12 @@
 export interface IProduct {
-    id?: number;
+    _id?: number;
     name: string | null | undefined;
     price: number | null | undefined;
     original_price: number;
     description: string;
-    avatar: string
-    image?: string;
+    avatar:any
+    images: any;
     slug: string;
     categoryId: number;
 }
+

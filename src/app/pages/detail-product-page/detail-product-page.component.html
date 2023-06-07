@@ -1,1 +1,52 @@
-<p>detail-product-page works!</p>
+<header>
+    <div class="logo">
+        <img src="/assets/images/logo/logo.png" alt="" routerLink="/">
+    </div>
+    
+        <nav>
+            <ul>
+                <li><a href="#" routerLink="/">Home</a></li>
+                <li><a href="#" routerLink="/about">About</a></li>
+                <li><a href="#" routerLink="/blog">Blog</a></li>
+                <li><a href="#" routerLink="/contact">Contact</a></li> 
+            </ul>
+        </nav>
+        <div class="icon">
+            <div class="cart">
+                <i class="fa-solid fa-cart-shopping"></i>
+            </div>
+            <div class="login">
+                <i class="fa-regular fa-user"></i>
+            </div>
+        </div>
+   
+</header>
+
+<div class="detail-page">
+   <div class="product-img-detail">
+    <div class="product-detail-avertar">
+        <img src="{{product.avatar.base_url}}" alt="img" >
+    </div>
+    <div class="images-gr">
+        <div class="images" *ngFor="let image of images">
+            <img  [src]="image.base_url" alt="images" >
+              <!-- <img  [src]="baseUrl" alt="images" > -->
+        </div>
+    </div>
+    
+   </div>
+   <div class="product-info-detail" *ngIf="product">
+    <div class="name-detail" *ngIf="product">{{product.name}}</div>
+    <div class="description">Thông tin thành phần:{{product.description}}</div>
+    <div class="price-detail">Giá Sản Phẩm:{{product.price}}VNĐ</div>
+    <div class="price-origin-detail">Giá Gốc:{{product.original_price}}VNĐ</div>
+   <div class="btn-add-product">
+    <button class="">Add</button>
+   </div>
+    
+   </div>
+</div>
+<app-footer/>
+
+
+

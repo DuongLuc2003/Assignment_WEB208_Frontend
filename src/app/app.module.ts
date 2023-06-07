@@ -6,6 +6,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
@@ -21,6 +22,7 @@ import { ProductItemComponent } from './compronents/product-item/product-item.co
 import { HeaderComponent } from './pages/home-page/header/header.component';
 import { ContainerComponent } from './pages/home-page/container/container.component';
 import { FooterComponent } from './pages/home-page/footer/footer.component';
+import { CategoriesService } from './services/categories.service';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,9 @@ import { FooterComponent } from './pages/home-page/footer/footer.component';
     ProductItemComponent,
     HeaderComponent,
     ContainerComponent,
-    FooterComponent
+    FooterComponent,
+    
+    
   ],
   imports: [
     BrowserModule,
@@ -51,7 +55,7 @@ import { FooterComponent } from './pages/home-page/footer/footer.component';
     FormsModule,
     ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [ CategoriesService, ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
