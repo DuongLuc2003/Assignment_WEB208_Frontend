@@ -4,7 +4,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
@@ -19,6 +18,13 @@ import { HeaderComponent } from './pages/home-page/header/header.component';
 import { ContainerComponent } from './pages/home-page/container/container.component';
 import { FooterComponent } from './pages/home-page/footer/footer.component';
 import { CategoriesService } from './services/categories.service';
+import { DefaultLayoutComponent } from './layouts/DefaultLayout/default-layout/default-layout.component';
+import { CartPageComponent } from './pages/cart-page/cart-page.component';
+import { StoreModule } from '@ngrx/store';
+import { productReducer } from './store/product/product.reducer';
+import { EffectsModule } from '@ngrx/effects';
+import { ProductEffects } from './store/product/product.effect';
+import { cartReducer } from './store/cart/cart.reducer';
 
 @NgModule({
   declarations: [
@@ -34,8 +40,8 @@ import { CategoriesService } from './services/categories.service';
     HeaderComponent,
     ContainerComponent,
     FooterComponent,
-    
-    
+    DefaultLayoutComponent,
+    CartPageComponent,
   ],
   imports: [
     BrowserModule,
@@ -43,8 +49,10 @@ import { CategoriesService } from './services/categories.service';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    StoreModule.forRoot({ product: productReducer, cart: cartReducer }),
+    EffectsModule.forRoot([ProductEffects]),
   ],
-  providers: [ CategoriesService, ],
-  bootstrap: [AppComponent]
+  providers: [CategoriesService],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
