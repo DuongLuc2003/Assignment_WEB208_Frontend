@@ -15,6 +15,12 @@ import { NotfoundPageComponent } from './pages/notfound-page/notfound-page.compo
 import { DetailProductPageComponent } from './pages/detail-product-page/detail-product-page.component';
 import { SinginComponent } from './pages/singin/singin.component';
 import { SingupComponent } from './pages/singup/singup.component';
+import { ProductComponent } from './compronents/product/product.component';
+import { ProductDetailComponent } from './compronents/product-detail/product-detail.component';
+import { ProductItemComponent } from './compronents/product-item/product-item.component';
+import { HeaderComponent } from './pages/home-page/header/header.component';
+import { ContainerComponent } from './pages/home-page/container/container.component';
+import { FooterComponent } from './pages/home-page/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +31,13 @@ import { SingupComponent } from './pages/singup/singup.component';
     NotfoundPageComponent,
     DetailProductPageComponent,
     SinginComponent,
-    SingupComponent
+    SingupComponent,
+    ProductComponent,
+    ProductDetailComponent,
+    ProductItemComponent,
+    HeaderComponent,
+    ContainerComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +46,10 @@ import { SingupComponent } from './pages/singup/singup.component';
     HttpClientModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
