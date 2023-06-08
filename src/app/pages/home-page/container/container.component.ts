@@ -13,6 +13,7 @@ export class ContainerComponent implements OnInit{
   products: IProduct[]= [];
   categories:ICategory[]=[];
   filteredProducts:IProduct[]=[];
+  selectedCategory: any;
   searchKeyword: string = '';
   searchResults: IProduct[] = [];
   
@@ -22,12 +23,14 @@ export class ContainerComponent implements OnInit{
     this.getProducts();
     this.loadAllProducts();
     this.loadCategories();
+    this.selectedCategory = "all";
   }
 
   getProducts() {
     this.productService.getProducts().subscribe(
       (response) => {
         this.products = response.data;
+        this.filteredProducts = this.products;
         console.log(response)
       },
       (error) => {
@@ -45,14 +48,25 @@ export class ContainerComponent implements OnInit{
     this.categoryService.getCategories()
       .subscribe(categories => this.categories = categories.datas);
   }
-  
-  filterByCategory(event: any) {
-    const categoryId = event.target.value;
-    if (categoryId) {
-      this.productService.getProductsByCategory(categoryId)
-        .subscribe(products => this.filteredProducts = products.data);
+  filterProducts() {
+    if (this.selectedCategory) {
+      this.filteredProducts = this.products.filter(product => product.categoryId === this.selectedCategory);
     } else {
-      this.loadAllProducts();
+      this.filteredProducts = this.products;
+  }
+  
+  }
+  showAllProducts() {
+    this.filteredProducts = this.products;
+  }
+  
+  searchProducts() {
+    if (this.searchKeyword) {
+      this.filteredProducts = this.products.filter(
+        product => product.name && product.name.toLowerCase().includes(this.searchKeyword.toLowerCase())
+      );
+    } else {
+      this.filteredProducts = this.products;
     }
   }
 
@@ -65,9 +79,9 @@ export class ContainerComponent implements OnInit{
   //   }
   // }
   
-  goToProductDetail(productId: number | undefined) {
-    if (productId !== undefined) {
-      this.router.navigate(['/product', productId]);
+  goToProductDetail(slug: string | undefined) {
+    if (slug !== undefined) {
+      this.router.navigate(['/products', slug]);
     }
   }
  
