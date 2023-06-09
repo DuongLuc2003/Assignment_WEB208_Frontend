@@ -1,0 +1,89 @@
+    
+    <div class="container">
+        <h1>Home kithen</h1>
+        <select (change)="filterByCategory($event)">
+            <option value="all">All</option>
+            <option *ngFor="let category of categories" [value]="category._id">{{ category.name }}</option>
+            <!-- <option value="{{category.id}}">{{category.name}}</option> -->
+        </select>
+        <!-- <input type="text" [(ngModel)]="searchKeyword" (input)="searchProducts()" placeholder="Search products">
+       <button (click)="searchProducts()">Search</button>
+       <ul>
+        <li *ngFor="let product of searchResults">{{ product.name }}</li>
+      </ul> -->
+        <div class="product-gr">
+            <!-- " -->
+            
+            <div class="product-item" *ngFor="let product of products" >
+                <img src="{{product.avatar.base_url}}" alt="img" (click)="goToProductDetail(product._id)" class="avatar">
+                <div class="product-item-info" >
+                    <div class="name" > <a [routerLink]="['/product', product._id]">{{ product.name }}</a></div>
+                    <div class="price-gr">
+                        <div class="price">{{product.price }}VNĐ</div>
+                        <div class="price-original">{{product.original_price}}VNĐ</div>
+                    </div>
+                    
+                </div>
+                <button class="add-product">Add</button>
+            </div>
+            
+       
+        </div>
+        <!-- <div class="blog">
+            <h2>Our Blog</h2>
+            <div class="blog-item-gr"> -->
+                <!--  -->
+                <!-- <div class="blog-gr1">
+                    <div class="blog-item">
+                        <img src="" alt="">
+                        <h3>Blog1</h3>
+                        <span>span1</span>
+                    </div>
+                    <div class="blog-item">
+                        <img src="" alt="">
+                        <h3>Blog1</h3>
+                        <span>span1</span>
+                    </div>
+                </div> -->
+                <!--  -->
+                <!-- <div class="blog-gr2">
+                    <div class="blog-item">
+                        <img src="" alt="">
+                        <h3>Blog1</h3>
+                        <span>span1</span>
+                    </div>
+                </div>
+                <div class="blog-gr3">
+                    <div class="blog-item">
+                        <img src="" alt="">
+                        <h3>Blog1</h3>
+                        <span>span1</span>
+                    </div>
+                    <div class="blog-item">
+                        <img src="" alt="">
+                        <h3>Blog1</h3>
+                        <span>span1</span>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+        <!-- contact -->
+        <!-- <div class="contact">
+            <div class="contact-gr1">
+                <div class="ct-title">
+                    <h2>Do you have a question or want to become a seller?</h2> 
+                    <span>Fill this form and our manager will contact you next 48 hours</span>
+                 </div>
+                 <div class="input-contact">
+                     <input type="text" placeholder="Your Name">
+                     <input type="email" placeholder="Your e-mail">
+                     <textarea name="" id="" cols="30" rows="10"></textarea>
+                 </div>
+            </div>
+           
+            <div class="contact-gr2">
+                <img src="" alt="">
+            </div>
+            
+        </div> -->
+    </div>
