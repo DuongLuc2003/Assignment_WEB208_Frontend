@@ -1,34 +1,40 @@
-    
+
     <div class="container">
-        <h1>Home kithen</h1>
-        <select (change)="filterByCategory($event)">
-            <option value="all">All</option>
-            <option *ngFor="let category of categories" [value]="category._id">{{ category.name }}</option>
-            <!-- <option value="{{category.id}}">{{category.name}}</option> -->
-        </select>
-        <!-- <input type="text" [(ngModel)]="searchKeyword" (input)="searchProducts()" placeholder="Search products">
-       <button (click)="searchProducts()">Search</button>
-       <ul>
-        <li *ngFor="let product of searchResults">{{ product.name }}</li>
-      </ul> -->
-        <div class="product-gr">
-            <!-- " -->
-            
-            <div class="product-item" *ngFor="let product of products" >
-                <img src="{{product.avatar.base_url}}" alt="img" (click)="goToProductDetail(product._id)" class="avatar">
-                <div class="product-item-info" >
-                    <div class="name" > <a [routerLink]="['/product', product._id]">{{ product.name }}</a></div>
-                    <div class="price-gr">
-                        <div class="price">{{product.price }}VNĐ</div>
-                        <div class="price-original">{{product.original_price}}VNĐ</div>
-                    </div>
-                    
-                </div>
-                <button class="add-product">Add</button>
-            </div>
-            
-       
+        <div class="searchfood">
+            <input type="text" placeholder="Search food..." [(ngModel)]="searchKeyword" >
+            <button (click)="searchProducts()"><i class="fa-solid fa-magnifying-glass"></i></button>
         </div>
+        <div class="container-main">
+            <h1>Home kithen</h1>
+            <select [(ngModel)]="selectedCategory" (change)="selectedCategory === 'all' ? showAllProducts() : filterProducts()" >
+                <option value="all" selected>All</option>
+                <option *ngFor="let category of categories" [value]="category._id">{{ category.name }}</option>
+            </select>
+            <div class="product-gr " *ngIf="filteredProducts.length > 0; else noProducts">
+                <!-- " -->
+                
+                    <div class="product-item" *ngFor="let product of filteredProducts" >
+                        <img src="{{product.avatar.base_url}}" alt="img" (click)="goToProductDetail(product.slug)" class="avatar">
+                        <div class="product-item-info" >
+                            <div class="name" ><a [routerLink]="['/products', product.slug]">{{ product.name }}</a></div>
+                            <div class="price-gr">
+                                <div class="price">{{product.price }}VNĐ</div>
+                                <div class="price-original">{{product.original_price}}VNĐ</div>
+                            </div>
+                            
+                        </div>
+                        
+                    </div>
+               
+                
+                
+                
+            </div>
+            <ng-template #noProducts>
+                <p>Không có sản phẩm nào.</p>
+              </ng-template>
+        </div>
+        
         <!-- <div class="blog">
             <h2>Our Blog</h2>
             <div class="blog-item-gr"> -->
