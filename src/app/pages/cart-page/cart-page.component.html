@@ -3,12 +3,20 @@
     <div class="flex shadow-md my-10">
       <div class="w-full bg-white px-10 py-10">
         <div class="flex justify-between border-b pb-8">
-          <h1 class="font-semibold text-2xl">Giỏ hàng</h1>
+          <h1 class="font-semibold text-2xl mt-4">Giỏ hàng</h1>
           <!-- count product in cart -->
           <!-- <h2 class="font-semibold text-2xl">3 Items</h2> -->
         </div>
 
         <div class="flex mt-10 mb-5">
+          <input
+            id="check-full-prd"
+            type="checkbox"
+            class="font-semibold text-gray-600 text-xs uppercase w-1/5"
+            autocomplete="off"
+            [(ngModel)]="selectAll"
+            (change)="selectAllItems()"
+          />
           <h3 class="font-semibold text-gray-600 text-xs uppercase w-2/5">
             Sản phẩm
           </h3>
@@ -35,17 +43,31 @@
         </div>
 
         <div id="cart-list">
-          <p class="" *ngIf="!carts || carts.length === 0">
+          <p class="" *ngIf="!cart || cart.length === 0">
             Bạn chưa có sản phẩm nào trong giỏ hàng
           </p>
           <div
-            *ngFor="let cart of carts"
+            *ngFor="let product of cart"
             class="flex items-center hover:bg-gray-100 -mx-8 px-6 py-5"
           >
+            <input
+              type="checkbox"
+              class="font-semibold text-gray-600 text-xs uppercase w-1/5"
+              autocomplete="off"
+              [checked]="selectedItems.includes(product)"
+              (change)="toggleItemSelection(product)"
+            />
             <div class="flex w-2/5">
               <!-- product -->
-              <div class="w-20">
-                <img class="h-24" src="../upload/${prd.image}" alt="" />
+              <h3 class="flex-1">
+                {{ product.name }}
+              </h3>
+              <div class="w-24">
+                <img
+                  class="h-24 w-24"
+                  src="{{ product.avatar.base_url }}"
+                  alt=""
+                />
               </div>
             </div>
 
@@ -55,24 +77,22 @@
               >
                 <button
                   type="button"
-                  data-action="decrement"
+                  (click)="handleDecrementCart(product._id!)"
                   class="bg-gray-200 text-gray-600 hover:text-gray-700 hover:bg-gray-400 h-full w-20 rounded-l cursor-pointer outline-none"
                 >
-                  <span class="m-auto text-2xl font-thin"></span>
+                  <span class="m-auto text-2xl font-thin">-</span>
                 </button>
                 <input
                   type="number"
                   class="outline-none focus:outline-none text-center w-full bg-gray-100 font-semibold text-md hover:text-black focus:text-black md:text-basecursor-default flex items-center text-gray-700 outline-none"
-                  name="sl[]"
-                  value="${prd.sl >= prd.amount ? prd.amount : prd.sl}"
+                  value="{{ product.sl }}"
+                  (change)="handleUpdateCart(product._id!, $event)"
                   min="0"
-                  data-sl=""
-                  disabled
                 />
 
                 <button
                   type="button"
-                  data-action="increment"
+                  (click)="handleIncrementCart(product._id!)"
                   class="bg-gray-200 text-gray-600 hover:text-gray-700 hover:bg-gray-400 h-full w-20 rounded-r cursor-pointer"
                 >
                   <span class="m-auto text-2xl font-thin">+</span>
@@ -81,20 +101,22 @@
               <!--  -->
             </div>
             <span class="text-center w-1/5 font-semibold text-sm"
-              ><span class="prd-price"></span> VNĐ</span
+              ><span class="prd-price">{{
+                product.price | number : "1.0-0"
+              }}</span>
+              VNĐ</span
             >
             <span class="text-center w-1/5 font-semibold text-sm"
-              ><span class="prd-total"></span> VNĐ</span
+              ><span class="prd-total">{{
+                (product.price! * product.sl!)! | number : "1.0-0"
+              }}</span>
+              VNĐ</span
             >
             <button
               type="button"
-              data-id="${prd.id}"
-              data-size="${prd.size}"
-              data-color="${
-                  prd.color
-              }"
               name="btn-remove-prd"
               class="text-center w-1/5 font-semibold text-sm"
+              (click)="handleRemoveCart(product._id)"
             >
               Xóa
             </button>
@@ -126,9 +148,13 @@
           <div class="flex space-x-3 font-bold text-xl uppercase">
             <span>Thành tiền</span>
             <span id="total"
-              >Tổng thanh toán (<span id="product-amount">0</span> sản phẩm) :
-              VNĐ
-              <span name="total" id="product-total">0</span>
+              >Tổng thanh toán (<span id="product-amount">{{
+                cart.length
+              }}</span>
+              sản phẩm) :
+              <span name="total" id="product-total"
+                >{{ handleTotalCart() | number : "1.0-0" }} VNĐ</span
+              >
             </span>
           </div>
         </div>
@@ -146,3 +172,4 @@
     </div>
   </div>
 </section>
+

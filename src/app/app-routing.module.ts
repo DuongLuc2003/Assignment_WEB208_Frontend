@@ -1,5 +1,9 @@
 import { DefaultLayoutComponent } from './layouts/DefaultLayout/default-layout/default-layout.component';
 import { NgModule } from '@angular/core';
+
+import { SinginComponent } from './pages/singin/singin.component';
+import { SingupComponent } from './pages/singup/singup.component';
+
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
 import { ProductComponent } from './compronents/product/product.component';
@@ -17,14 +21,15 @@ const routes: Routes = [
     children: [
       { path: '', component: HomePageComponent },
       { path: 'cart', component: CartPageComponent },
+      { path: 'product/:id', component: DetailProductPageComponent },
     ],
   },
 
   { path: 'about', component: AboutPageComponent },
   { path: 'contact', component: ContactPageComponent },
   { path: 'products', component: ProductComponent },
-  { path: 'product/:id', component: DetailProductPageComponent },
-
+  { path: 'singin', component: SinginComponent },
+  { path: 'singup', component: SingupComponent },
   { path: '**', component: NotfoundPageComponent },
 ];
 

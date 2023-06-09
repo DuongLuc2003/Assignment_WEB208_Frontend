@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
+import { ToastrService } from 'ngx-toastr';
+import { ICart } from 'src/app/interfaces';
 import { IProduct } from 'src/app/interfaces/product';
 import { ProductService } from 'src/app/services/product.service';
 import { addCart } from 'src/app/store/cart/cart.action';
@@ -16,7 +18,8 @@ export class DetailProductPageComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private productService: ProductService,
-    private store: Store<any>
+    private store: Store<any>,
+    private toastor: ToastrService
   ) {
     // this.route.paramMap.subscribe((params => {
     //   const id = Number(params.get('id'));
@@ -66,20 +69,11 @@ export class DetailProductPageComponent implements OnInit {
   // }
 
   handleAddCart() {
-    this.store.dispatch(
-      addCart({
-        cart: {
-          name: 'sản phẩm 1',
-          price: 2,
-          original_price: 3,
-          avatar: '',
-          categoryId: 1,
-          description: 'a',
-          images: [],
-          slug: '',
-          _id: 11,
-        },
-      })
-    );
+    if (this.product) {
+      this.store.dispatch(
+        addCart({ cart: { ...this.product, sl: 1 } as ICart })
+      );
+      this.toastor.success('Thêm sản phẩm vô giỏ hàng thành công');
+    }
   }
 }
