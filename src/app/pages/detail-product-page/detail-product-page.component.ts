@@ -15,6 +15,7 @@ export class DetailProductPageComponent implements OnInit {
   product!: IProduct;
   baseUrl: any;
   images: any;
+  slug: any;
   constructor(
     private route: ActivatedRoute,
     private productService: ProductService,
@@ -29,33 +30,23 @@ export class DetailProductPageComponent implements OnInit {
     // }))
   }
   ngOnInit() {
-    const productId = this.route.snapshot.paramMap.get('id');
-
-    this.productService.getProduct(productId).subscribe(
+    
+    this.route.paramMap.subscribe(params => {
+      this.slug = params.get('slug');
+      this.getProductBySlug(this.slug);
+    });
+  }
+  getProductBySlug(slug: string) {
+    this.productService.getProduct(slug).subscribe(
       (response: any) => {
         this.product = response.data;
-        this.images = response.data.images;
-        // if (images && images.length > 0) {
-        //   this.baseUrl = images[0].base_url;
-        // }
+        this.images = response.data.images.map((image: any) => image.base_url)
+        console.log(response)
       },
-      (error: any) => {
+      (error) => {
         console.error(error);
       }
     );
-    // this.getProduct(productId);
-
-    // this.productService.getProduct(productId).subscribe(
-    //   (response: any) => {
-    //     const images = response.images;
-    //     if (images && images.length > 0) {
-    //       this.baseUrl = images[0].base_url;
-    //     }
-    //   },
-    //   (error: any) => {
-    //     console.error(error);
-    //   }
-    // );
   }
   // getProduct(productId: any) {
   //   this.productService.getProduct(productId).subscribe(

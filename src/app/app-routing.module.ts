@@ -21,13 +21,14 @@ const routes: Routes = [
     children: [
       { path: '', component: HomePageComponent },
       { path: 'cart', component: CartPageComponent },
-      { path: 'product/:id', component: DetailProductPageComponent },
+      { path: 'products/:slug', component: DetailProductPageComponent },
     ],
   },
 
-  { path: 'about', component: AboutPageComponent },
-  { path: 'contact', component: ContactPageComponent },
-  { path: 'products', component: ProductComponent },
+  {path:'about',component:AboutPageComponent},
+  {path:'contact',component:ContactPageComponent},
+  {path:'products',component:ProductComponent},
+  {path:'products/:slug',component:DetailProductPageComponent},
   { path: 'singin', component: SinginComponent },
   { path: 'singup', component: SingupComponent },
   { path: '**', component: NotfoundPageComponent },
