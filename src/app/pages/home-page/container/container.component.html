@@ -32,7 +32,15 @@
             
         </div>
         <ng-template #noProducts>
-            <p>Không có sản phẩm nào.</p>
+            <div class="bg-gray-100">
+                <div class="flex items-center justify-center h-screen">
+                  <div class="text-center">
+                    <h1 class="text-4xl font-bold text-gray-800">Không tìm thấy sản phẩm</h1>
+                    <p class="text-lg text-gray-600 mb-8">Chúng tôi xin lỗi, nhưng sản phẩm được yêu cầu không có sẵn.</p>
+                    <a href="/" class="text-white bg-blue-500 hover:bg-blue-700 py-3 px-6 rounded-lg font-medium">Go to Home</a>
+                  </div>
+                </div>
+              </div>
           </ng-template>
     </div>
     

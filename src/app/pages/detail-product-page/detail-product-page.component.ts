@@ -16,6 +16,7 @@ export class DetailProductPageComponent implements OnInit {
   baseUrl: any;
   images: any;
   slug: any;
+  
   constructor(
     private route: ActivatedRoute,
     private productService: ProductService,
