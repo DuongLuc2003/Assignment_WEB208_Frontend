@@ -46,6 +46,18 @@ const routes: Routes = [
   },
   { path: '**', component: NotfoundPageComponent },
 
+
+const routes: Routes = [
+  {path:'',component:HomePageComponent},
+  {path:'about',component:AboutPageComponent},
+  {path:'contact',component:ContactPageComponent},
+  {path:'product/:id',component:ProductDetailComponent},
+  {path: 'singin', component: SinginComponent},
+  {path: 'singup', component: SingupComponent},
+  {path:'products',component:ProductComponent},
+  {path:'product/:id',component:DetailProductPageComponent},
+  {path:'**',component:NotfoundPageComponent}
+
 ];
 
 @NgModule({

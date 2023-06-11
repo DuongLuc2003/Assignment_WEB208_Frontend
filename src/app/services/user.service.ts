@@ -12,9 +12,9 @@ export class UserService {
 
    }
    singup(user:IUser): Observable<IUser> {
-    return this.http.post<IUser>(`http://localhost:8000/api/singup`, user);
+    return this.http.post<IUser>(`http://localhost:8000/api/signup`, user);
   }
    singin(user:IUser): Observable<IUser> {
-    return this.http.post<IUser>(`http://localhost:8000/api/singin`, user);
+    return this.http.post<IUser>(`http://localhost:8000/api/signin`, user);
   }
 }

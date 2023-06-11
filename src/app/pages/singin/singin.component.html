@@ -1,7 +1,42 @@
-<form [formGroup]="userForm" (ngSubmit)="onHandleSubmit()">
-    <label for="email">email: </label>
-    <input id="email" type="email" formControlName="email" required="true">
-    <label for="password">password: </label>
-    <input id="password" type="password" formControlName="password"  autocomplete="password">
-  <button type="submit" [disabled]="!userForm.valid">submit</button>
+
+<div class="w-full bg-green-300 h-[800px] flex">
+  <div class="border border-3 border-white bg-green-300 rounded-lg px-20 py-20 mt-[100px] m-auto w-[500px] flex flex-col justify-center items-center shadow-xl">
+    <div class="text-3xl font-bold mb-4 text-center">
+  Login
+</div>
+<div class="px-4">
+  <form [formGroup]="userForm" (ngSubmit)="onHandleSubmit()">
+    <div class="mb-4">
+      <label class="block text-gray-700 font-bold mb-2" for="email">
+        <span class="sr-only">Email</span>
+      </label>
+      <div class="relative">
+        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+          <svg class="h-5 w-5 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M18.25 16h-16.5c-.69 0-1.25-.56-1.25-1.25v-9.5c0-.69.56-1.25 1.25-1.25h16.5c.69 0 1.25.56 1.25 1.25v9.5c0 .69-.56 1.25-1.25 1.25zM2.75 5.5v9.5h16.5v-9.5h-16.5z" clip-rule="evenodd" />
+          </svg>
+        </div>
+        <input class="rounded-lg border border-gray-400 pl-10 pr-4 py-2 w-full" id="email" type="email" formControlName="email" autocomplete="email" placeholder="Email">
+      </div>
+    </div>
+    <div class="mb-6">
+      <label class="block text-gray-700 font-bold mb-2" for="password">
+        <span class="sr-only">Password</span>
+      </label>
+      <div class="relative">
+        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+          <svg class="h-5 w-5 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M10 12a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
+            <path fill-rule="evenodd" d="M16.105 9.316c.895.817 1.395 1.908 1.395 3.084v3.2c0 2.206-1.794 4-4 4H6c-2.206 0-4-1.794-4-4v-3.2c0-1.176.5-2.267 1.395-3.084l.75-.684V7c0-2.206 1.794-4 4-4h3.5c2.206 0 4 1.794 4 4v1.632l.75.684zM6 13.2v2.8c0 1.103.897 2 2 2h6c1.103 0 2-.897 2-2v-2.8c0-.76-.324-1.45-.841-1.934l-.75-.684V7c0-1.103-.897-2-2-2H10.5c-1.103 0-2 .897-2 2v3.582l-.75.684c-.517.485-.841 1.175-.841 1.934z" clip-rule="evenodd" />
+          </svg>
+        </div>
+        <input class="rounded-lg border border-gray-400 pl-10 pr-4 py-2 w-full" id="password" type="password" formControlName="password" autocomplete="current-password" placeholder="Password">
+      </div>
+    </div>
+    <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded" type="submit" [disabled]="!userForm.valid">Submit</button>
   </form>
+  <button routerLink="/singup" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded my-2" type="submit">Register</button> 
+</div>
+
+</div>
+</div>
