@@ -1,0 +1,52 @@
+<header>
+  <div class="logo">
+    <img src="/assets/images/logo/logo2.jpg" alt="" routerLink="/" />
+  </div>
+
+  <nav>
+    <ul>
+      <li><a href="#" routerLink="/">Home</a></li>
+      <li><a href="#" routerLink="/about">About</a></li>
+      <li><a href="#" routerLink="/blog">Blog</a></li>
+      <li><a href="#" routerLink="/contact">Contact</a></li>
+    </ul>
+  </nav>
+  <div class="icon">
+    <a routerLink="/cart" class="cart relative">
+      <i class="fa-solid fa-cart-shopping"></i>
+      <span
+        class="absolute top-[20px] left-[15px] inline-flex items-center justify-center w-4 h-4 ml-2 text-xs font-semibold text-blue-800 bg-blue-200 rounded-full"
+      >
+        {{ totalCart }}
+      </span>
+    </a>
+    <div class="login">
+      <i class="fa-regular fa-user"></i>
+    </div>
+  </div>
+</header>
+
+<main><router-outlet /></main>
+
+<footer>
+  <div class="logo">
+    <img src="/assets/images/logo/logo2.jpg" alt="" routerLink="/" />
+  </div>
+
+  <nav>
+    <ul>
+      <li><a href="#" routerLink="/">Home</a></li>
+      <li><a href="#" routerLink="/about">About</a></li>
+      <li><a href="#" routerLink="/blog">Blog</a></li>
+      <li><a href="#" routerLink="/contact">Contact</a></li>
+    </ul>
+  </nav>
+  <div class="icon">
+    <div class="cart face">
+      <i class="fa-brands fa-facebook"></i>
+    </div>
+    <div class="login insta">
+      <i class="fa-brands fa-instagram"></i>
+    </div>
+  </div>
+</footer>

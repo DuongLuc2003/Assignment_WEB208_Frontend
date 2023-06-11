@@ -1,0 +1,32 @@
+<a href="/admin/product/add"><button>Add New Product</button></a>
+<table class="table my-10">
+  <thead>
+    <tr class="text-center">
+      <th>#</th>
+      <th>Name</th>
+      <th>Avatar</th>
+      <!-- <th>slug</th> -->
+      <th>description</th>
+      <th>Price</th>
+      <th>Original_price</th>
+      <!-- <th>images</th> -->
+      <th>categoryId</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let product of products, let index = index">
+      <td>{{index + 1}}</td>
+      <td>{{product.name}}</td>
+      <td><img src={{product.avatar.base_url}} class="w-[100px] h-[100px]"/></td>
+      <!-- <td>{{product.slug}}</td> -->
+      <td>{{product.description}}</td>
+      <td>{{product.price }}</td>
+      <td>{{product.original_price }}</td>
+      <!-- <td><img src={{product.images[0].base_url}} class="w-[150px] h-[70px]"/></td> -->
+      <td>{{product.categoryId}}</td>
+      <td><button type="submit" (click)="removeItem(product._id)" class="btn btn-danger">Xóa</button></td>
+      <td><a href="/admin/product/{{product._id}}/edit"><button class="btn btn-danger">update</button></a></td>
+    </tr>
+  </tbody>
+</table>
