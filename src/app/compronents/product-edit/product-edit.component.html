@@ -1,0 +1,94 @@
+<div class="w-full max-w-2xl mx-auto mt-2">
+  <h1 class="mb-3 text-center">ADD PRODUCT</h1>
+  <form
+    [formGroup]="productForm"
+    (ngSubmit)="onHandleUpdate()"
+    class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
+  >
+    <div class="mb-4">
+      <label for="name" class="block text-gray-700 text-sm font-bold mb-2"
+        >Name</label
+      >
+      <input
+        type="text"
+        id="name"
+        formControlName="name"
+        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+      />
+    </div>
+
+    <div class="mb-4">
+      <label for="price" class="block text-gray-700 text-sm font-bold mb-2"
+        >Price</label
+      >
+      <input
+        type="number"
+        id="price"
+        formControlName="price"
+        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+      />
+    </div>
+
+    <div class="mb-4">
+      <label
+        for="original_price"
+        class="block text-gray-700 text-sm font-bold mb-2"
+        >original_price</label
+      >
+      <input
+        type="number"
+        id="original_price"
+        formControlName="original_price"
+        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+      />
+    </div>
+
+    <div class="mb-4">
+      <label
+        for="description"
+        class="block text-gray-700 text-sm font-bold mb-2"
+        >description</label
+      >
+      <input
+        type="text"
+        id="description"
+        formControlName="description"
+        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+      />
+    </div>
+
+    <div class="mb-4" formGroupName="avatar">
+      <h2>avatar</h2>
+
+      <label for="base_url" class="block text-gray-700 text-sm font-bold mb-2"
+        >File ảnh:
+      </label>
+      <input
+        id="base_url"
+        type="text"
+        formControlName="base_url"
+        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+      />
+      <!-- <input id="base_url" type="file" formControlName="base_url" (change)="onImageSelected($event)"> -->
+    </div>
+
+    <div class="mb-4">
+      <label for="categoryId" class="block text-gray-700 text-sm font-bold mb-2"
+        >categoryId</label
+      >
+      <input
+        type="text"
+        id="categoryId"
+        formControlName="categoryId"
+        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+      />
+    </div>
+
+    <button
+      type="submit"
+      class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 px-10 rounded focus:outline-none focus:shadow-outline block mx-auto"
+    >
+      Update
+    </button>
+  </form>
+</div>
