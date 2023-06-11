@@ -32,6 +32,7 @@ import { productReducer } from './store/product/product.reducer';
 import { EffectsModule } from '@ngrx/effects';
 import { ProductEffects } from './store/product/product.effect';
 import { cartReducer } from './store/cart/cart.reducer';
+import { ProductEditComponent } from './compronents/product-edit/product-edit.component';
 
 @NgModule({
   declarations: [
@@ -54,6 +55,7 @@ import { cartReducer } from './store/cart/cart.reducer';
     ProductAddComponent,
     DefaultLayoutComponent,
     CartPageComponent,
+    ProductEditComponent
   ],
   imports: [
     BrowserModule,
