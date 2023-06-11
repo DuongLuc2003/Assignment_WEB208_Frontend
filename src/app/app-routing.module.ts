@@ -22,7 +22,6 @@ const routes: Routes = [
   {path:'about',component:AboutPageComponent},
   {path:'contact',component:ContactPageComponent},
   {path:'product/:id',component:ProductDetailComponent},
-  {path:'**',component:NotfoundPageComponent},
   {path: 'singin', component: SinginComponent},
   {path: 'singup', component: SingupComponent},
   {path:'products',component:ProductComponent},

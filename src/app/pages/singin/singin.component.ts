@@ -2,6 +2,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { Component } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
 import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-singin',
@@ -13,7 +14,8 @@ export class SinginComponent {
   constructor(
     private userservice: UserService,
     private fb: FormBuilder,
-    private toastor: ToastrService
+    private toastor: ToastrService,
+    private router: Router
   ) {
   }
   userForm = this.fb.group({
@@ -27,29 +29,30 @@ export class SinginComponent {
         email: this.userForm.value.email || '',
         password: this.userForm.value.password || '',
       }
-      // console.log(User);
+      console.log(User);
       this.userservice.singin(User).subscribe(
         // data=>console.log('data')
         (response:any) => {
-          // console.log(response.user.role,response);
+          console.log(response.user.role,response);
           // const role:string =response.user.role
           if (!response.user) {
             this.toastor.success(response.message);
+            console.log(response.message);
+            
           }
           else {
-            // Hiển thị thông báo lỗi đăng nhập
             const token: any = response.accsestoken
             localStorage.setItem("accessTokent", token);
             localStorage.setItem("role", response?.user?.role);
             if (response.user.role === 'admin') {
               console.log('admin');
             this.toastor.success(response.message);
-             
+            this.router.navigate(['/singup']);
             }
             else {
               console.log('member');
             this.toastor.success(response.message);
-
+            this.router.navigate(['/singup']);
             }
           }
         },
