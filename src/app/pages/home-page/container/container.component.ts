@@ -60,6 +60,24 @@ export class ContainerComponent implements OnInit{
     this.filteredProducts = this.products;
   }
   
+    if (this.searchKeyword) {
+      this.filteredProducts = this.products.filter(
+        product => product.name && product.name.toLowerCase().includes(this.searchKeyword.toLowerCase())
+      );
+    } else {
+      this.filteredProducts = this.products;
+  filterProducts() {
+    if (this.selectedCategory) {
+      this.filteredProducts = this.products.filter(product => product.categoryId === this.selectedCategory);
+    } else {
+      this.filteredProducts = this.products;
+  }
+  
+  }
+  showAllProducts() {
+    this.filteredProducts = this.products;
+  }
+  
   searchProducts() {
     if (this.searchKeyword) {
       this.filteredProducts = this.products.filter(
@@ -69,6 +87,7 @@ export class ContainerComponent implements OnInit{
       this.filteredProducts = this.products;
     }
   }
+
 
   // searchProducts() {
   //   if (this.searchKeyword.trim() !== '') {

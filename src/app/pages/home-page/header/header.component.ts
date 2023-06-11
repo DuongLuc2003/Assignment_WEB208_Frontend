@@ -14,6 +14,7 @@ export class HeaderComponent implements OnInit{
   searchKeyword: string = '';
   searchResults: IProduct[] = [];
 
+
   ngOnInit() {
     
   }

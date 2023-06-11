@@ -1,11 +1,12 @@
+import { DefaultLayoutComponent } from './layouts/DefaultLayout/default-layout/default-layout.component';
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+
 import { SinginComponent } from './pages/singin/singin.component';
 import { SingupComponent } from './pages/singup/singup.component';
 
-
 import { BrowserModule } from '@angular/platform-browser';
-import { HomePageComponent } from './pages/home-page/home-page.component';
+import { RouterModule, Routes } from '@angular/router';
+import { ProductComponent } from './compronents/product/product.component';
 import { AboutPageComponent } from './pages/about-page/about-page.component';
 import { ContactPageComponent } from './pages/contact-page/contact-page.component';
 import { NotfoundPageComponent } from './pages/notfound-page/notfound-page.component';
@@ -19,29 +20,40 @@ import { ManagementProductComponent } from './compronents/management-product/man
 import { ProductAddComponent } from './compronents/product-add/product-add.component';
 import { ProductEditComponent } from './compronents/product-edit/product-edit.component';
 
+import { HomePageComponent } from './pages/home-page/home-page.component';
+import { NotfoundPageComponent } from './pages/notfound-page/notfound-page.component';
+import { CartPageComponent } from './pages/cart-page/cart-page.component';
 
 const routes: Routes = [
-  { path: '', component: HomePageComponent },
-  { path: 'about', component: AboutPageComponent },
-  { path: 'contact', component: ContactPageComponent },
-  { path: 'products', component: ProductComponent },
-  { path: 'products/:slug', component: DetailProductPageComponent },
-  { path: '**', component: NotfoundPageComponent },
+  {
+    path: '',
+    component: DefaultLayoutComponent,
+    children: [
+      { path: '', component: HomePageComponent },
+      { path: 'cart', component: CartPageComponent },
+      { path: 'products/:slug', component: DetailProductPageComponent },
+    ],
+  },
+
+  {path:'about',component:AboutPageComponent},
+  {path:'contact',component:ContactPageComponent},
+  {path:'products',component:ProductComponent},
+  {path:'products/:slug',component:DetailProductPageComponent},
   { path: 'singin', component: SinginComponent },
   { path: 'singup', component: SingupComponent },
-  {
-    path: 'admin', component: AdminLayoutComponent, children: [
+  {path: 'admin', component: AdminLayoutComponent, children: [
       { path: '', redirectTo: 'product', pathMatch: 'full' },
       { path: 'product', component: ManagementProductComponent },
       { path: "product/add", component: ProductAddComponent },
       { path: 'product/:id/edit', component: ProductEditComponent }
     ],
   },
-  { path: '**', component: NotfoundPageComponent }
+  { path: '**', component: NotfoundPageComponent },
 ];
 
 @NgModule({
   imports: [BrowserModule, RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
