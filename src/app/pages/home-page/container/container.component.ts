@@ -48,7 +48,24 @@ export class ContainerComponent implements OnInit{
     this.categoryService.getCategories()
       .subscribe(categories => this.categories = categories.datas);
   }
+  filterProducts() {
+    if (this.selectedCategory) {
+      this.filteredProducts = this.products.filter(product => product.categoryId === this.selectedCategory);
+    } else {
+      this.filteredProducts = this.products;
+  }
   
+  }
+  showAllProducts() {
+    this.filteredProducts = this.products;
+  }
+  
+    if (this.searchKeyword) {
+      this.filteredProducts = this.products.filter(
+        product => product.name && product.name.toLowerCase().includes(this.searchKeyword.toLowerCase())
+      );
+    } else {
+      this.filteredProducts = this.products;
   filterProducts() {
     if (this.selectedCategory) {
       this.filteredProducts = this.products.filter(product => product.categoryId === this.selectedCategory);
@@ -80,6 +97,7 @@ export class ContainerComponent implements OnInit{
   //     this.loadAllProducts();
   //   }
   // }
+  
   goToProductDetail(slug: string | undefined) {
     if (slug !== undefined) {
       this.router.navigate(['/products', slug]);

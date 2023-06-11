@@ -21,7 +21,7 @@ getProducts(): Observable<{data:IProduct[]}> {
     return this.http.get<{data:IProduct[]}>(`${this.API_Url}/products`);
 }
 getProduct(slug:string ):Observable<IProduct>{
-  return this.http.get<IProduct>(`${this.API_Url}/products/${slug}`);
+    return this.http.get<IProduct>(`${this.API_Url}/products/${slug}`);
 }
 deleteProduct(id: number | string): Observable<IProduct> {
     return this.http.delete<IProduct>(`${this.API_Url}/` + id);

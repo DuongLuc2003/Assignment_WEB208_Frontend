@@ -22,6 +22,9 @@ import { HeaderComponent } from './pages/home-page/header/header.component';
 import { ContainerComponent } from './pages/home-page/container/container.component';
 import { FooterComponent } from './pages/home-page/footer/footer.component';
 import { CategoriesService } from './services/categories.service';
+import { ProductAddComponent } from './compronents/product-add/product-add.component';
+import { ManagementProductComponent } from './compronents/management-product/management-product.component';
+import { AdminLayoutComponent } from './admin-layout/admin-layout.component';
 import { DefaultLayoutComponent } from './layouts/DefaultLayout/default-layout/default-layout.component';
 import { CartPageComponent } from './pages/cart-page/cart-page.component';
 import { StoreModule } from '@ngrx/store';
@@ -46,6 +49,10 @@ import { cartReducer } from './store/cart/cart.reducer';
     HeaderComponent,
     ContainerComponent,
     FooterComponent,
+    AdminLayoutComponent,
+    ManagementProductComponent,
+    ProductAddComponent,
+    ProductEditComponent
     DefaultLayoutComponent,
     CartPageComponent,
   ],
