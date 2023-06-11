@@ -24,13 +24,13 @@ getProduct(slug:string ):Observable<IProduct>{
     return this.http.get<IProduct>(`${this.API_Url}/products/${slug}`);
 }
 deleteProduct(id: number | string): Observable<IProduct> {
-    return this.http.delete<IProduct>(`${this.API_Url}/` + id);
+    return this.http.delete<IProduct>(`${this.API_Url}/products/` + id);
 }
 addProduct(product: IProduct): Observable<IProduct> {
-    return this.http.post<IProduct>(`${this.API_Url}/`, product);
+    return this.http.post<IProduct>(`${this.API_Url}/products`, product);
 }
 updateProduct(product: IProduct): Observable<IProduct> {
-    return this.http.put<IProduct>(`${this.API_Url}/${product._id}`,product);
+    return this.http.put<IProduct>(`${this.API_Url}/products/${product._id}`,product);
 }
 
 getProductsByCategory(categoryId: string): Observable<{data:IProduct[]}> {

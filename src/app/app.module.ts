@@ -52,16 +52,12 @@ import { cartReducer } from './store/cart/cart.reducer';
     AdminLayoutComponent,
     ManagementProductComponent,
     ProductAddComponent,
-    ProductEditComponent
     DefaultLayoutComponent,
     CartPageComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule,
-    HttpClientModule,
-    ReactiveFormsModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
     ToastNoAnimationModule.forRoot(),

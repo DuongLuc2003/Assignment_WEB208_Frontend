@@ -21,8 +21,8 @@
       <td><img src={{product.avatar.base_url}} class="w-[100px] h-[100px]"/></td>
       <!-- <td>{{product.slug}}</td> -->
       <td>{{product.description}}</td>
-      <td>{{product.price | currency}}</td>
-      <td>{{product.original_price | currency}}</td>
+      <td>{{product.price }}</td>
+      <td>{{product.original_price }}</td>
       <!-- <td><img src={{product.images[0].base_url}} class="w-[150px] h-[70px]"/></td> -->
       <td>{{product.categoryId}}</td>
       <td><button type="submit" (click)="removeItem(product._id)" class="btn btn-danger">Xóa</button></td>
