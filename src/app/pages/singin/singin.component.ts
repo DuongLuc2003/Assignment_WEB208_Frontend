@@ -33,10 +33,9 @@ export class SinginComponent {
       this.userservice.singin(User).subscribe(
         // data=>console.log('data')
         (response:any) => {
-          console.log(response.user.role,response);
-          // const role:string =response.user.role
+          // console.log(response.user.role,response);
           if (!response.user) {
-            this.toastor.success(response.message);
+            this.toastor.error(response.message);
             console.log(response.message);
             
           }
@@ -44,15 +43,15 @@ export class SinginComponent {
             const token: any = response.accsestoken
             localStorage.setItem("accessTokent", token);
             localStorage.setItem("role", response?.user?.role);
-            if (response.user.role === 'admin') {
+            if (response?.user.role === 'admin') {
               console.log('admin');
             this.toastor.success(response.message);
-            this.router.navigate(['/singup']);
+            this.router.navigate(['/admin']);
             }
             else {
               console.log('member');
             this.toastor.success(response.message);
-            this.router.navigate(['/singup']);
+            this.router.navigate(['']); 
             }
           }
         },
