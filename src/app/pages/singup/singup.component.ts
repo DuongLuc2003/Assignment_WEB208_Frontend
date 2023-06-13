@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
 import { IUser } from 'src/app/Iproduct/iuser';
 import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-singup',
@@ -13,7 +14,9 @@ export class SingupComponent {
   constructor(
     private fb: FormBuilder,
     private userService: UserService,
-    private toastor: ToastrService
+    private toastor: ToastrService,
+    private router: Router
+
   ) {}
 
   userForm = this.fb.group({
@@ -37,8 +40,13 @@ export class SingupComponent {
       };
       console.log(this.userForm.value);
       this.userService.singup(user).subscribe((response: any) => {
-        this.toastor.success(response.message);
-      });
+        if (response.success) {
+          this.toastor.success(response.message);
+          this.router.navigate(['/signin']); // Chuyển hướng đến trang signin
+        } else {
+          this.toastor.error(response.message);
+        }
+      })
     }
   }
 }

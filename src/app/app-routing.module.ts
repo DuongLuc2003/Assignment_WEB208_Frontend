@@ -15,6 +15,7 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
 import { NotfoundPageComponent } from './pages/notfound-page/notfound-page.component';
 import { SinginComponent } from './pages/singin/singin.component';
 import { SingupComponent } from './pages/singup/singup.component';
+import { ProductDetailComponent } from './compronents/product-detail/product-detail.component';
 
 const routes: Routes = [
   {
@@ -44,10 +45,9 @@ const routes: Routes = [
       { path: 'product/:id/edit', component: ProductEditComponent },
     ],
   },
+  
   { path: '**', component: NotfoundPageComponent },
-
-
-const routes: Routes = [
+  
   {path:'',component:HomePageComponent},
   {path:'about',component:AboutPageComponent},
   {path:'contact',component:ContactPageComponent},
